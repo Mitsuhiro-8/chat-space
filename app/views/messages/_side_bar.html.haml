@@ -1,0 +1,18 @@
+.SideBar
+  .SideBar__user
+    .SideBar__items
+      .SideBar__userName
+        masa
+      .SideBar__icon
+        = link_to "#", class: "SideBar__icon--edit" do
+          =icon('fas', 'edit')
+          %span<>
+        = link_to "#", class: "SideBar__icon--cog" do
+          =icon('fas', 'cog')
+          %span<>
+  .SideBar__groupList
+    .SideBar__groupMenu
+      .SideBar__groupName
+        techcamp
+      .SideBar__groupMessage
+        まだメッセージがありません

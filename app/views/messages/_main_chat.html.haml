@@ -1,0 +1,37 @@
+.ChatMain
+  .ChatMain__header
+    .ChatMain__headerLeft
+      .ChatMain__groupName
+        test
+      .ChatMain__memberName
+        Member : masa
+
+    .ChatMain__headerRight
+      = link_to "#", class: "ChatMain__rightBtn" do
+        Edit
+  .ChatMain__messageList
+    .ChatMain__info
+      .ChatMain__userName
+        masa
+      .ChatMain__date
+        2019/11/20(wed)8:43:01
+    .ChatMain__message
+      おはよう！
+
+    .ChatMain__info
+      .ChatMain__userName
+        masa
+      .ChatMain__date
+        2019/11/20(wed)8:43:01
+    .ChatMain__message
+      おはよう！
+
+  .ChatMain__footer
+    %form.ChatMain__form
+      .ChatMain__inputBox
+        %input.ChatMain__inputBox--text{placeholder: "type a message", type: "text"}
+        %label.ChatMain__inputBox--image
+          = icon('far', 'image', class: "ChatMain__inputBox--icon")
+          %input.ChatMain__inputBox--file{type: "file"}
+
+      %input.ChatMain__submit{type: "submit", value: "Send"}

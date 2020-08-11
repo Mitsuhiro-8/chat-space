@@ -38,12 +38,11 @@
     text-align: right;
 
     &--edit {
-      color: $white;
+
     }
     
     &--cog {
       margin-left: 5px;
-      color: $white;
     }
   }
   
@@ -56,16 +55,20 @@
   &__groupMenu {
     padding: 20px 0 40px 0;
   }
-    
+  
   &__groupName {
     font-size: 15px;
     margin-bottom: 5px;
   }
-
+  
   &__groupMessage {
     font-size: 11px;
   }
 
+  a {
+    color: $white;
+    text-decoration: none;
+  }
 }
 
 

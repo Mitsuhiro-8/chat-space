@@ -2,17 +2,19 @@
   .SideBar__user
     .SideBar__items
       .SideBar__userName
-        =current_user.name
+        = current_user.name
       .SideBar__icon
-        = link_to "#", class: "SideBar__icon--edit" do
+        = link_to new_group_path(current_user), class: "SideBar__icon--edit" do
           =icon('fas', 'edit')
           %span<>
         = link_to edit_user_path(current_user), class: "SideBar__icon--cog" do
           =icon('fas', 'cog')
           %span<>
   .SideBar__groupList
-    .SideBar__groupMenu
-      .SideBar__groupName
-        techcamp
-      .SideBar__groupMessage
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .SideBar__groupMenu
+        = link_to '#' do
+          .SideBar__groupName
+            = group.name
+          .SideBar__groupMessage
+            メッセージはまだありません

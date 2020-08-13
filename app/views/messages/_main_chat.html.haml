@@ -2,36 +2,27 @@
   .ChatMain__header
     .ChatMain__headerLeft
       .ChatMain__groupName
-        test
+        = @group.name
       .ChatMain__memberName
-        Member : masa
+        member : 
+        %span
+          - @group.users.each do |user|
+            = user.name
 
     .ChatMain__headerRight
-      = link_to edit_group_path(current_user), class: "ChatMain__rightBtn" do
+      = link_to edit_group_path(@group), class: "ChatMain__rightBtn" do
         Edit
-  .ChatMain__messageList
-    .ChatMain__info
-      .ChatMain__userName
-        masa
-      .ChatMain__date
-        2019/11/20(wed)8:43:01
-    .ChatMain__message
-      おはよう！
 
-    .ChatMain__info
-      .ChatMain__userName
-        masa
-      .ChatMain__date
-        2019/11/20(wed)8:43:01
-    .ChatMain__message
-      おはよう！
+  .ChatMain__messageList
+    = render @messages
+
 
   .ChatMain__footer
-    %form.ChatMain__form
+    = form_with model: [@group, @message], html: {class: "ChatMain__form"}, local: true do |f|
       .ChatMain__inputBox
-        %input.ChatMain__inputBox--text{placeholder: "type a message", type: "text"}
-        %label.ChatMain__inputBox--image
+        = f.text_field :content, class: "ChatMain__inputBox--text", placeholder: 'type a message'
+        = f.label :image, class: "ChatMain__inputBox--image" do
           = icon('far', 'image', class: "ChatMain__inputBox--icon")
-          %input.ChatMain__inputBox--file{type: "file"}
+          = f.file_field :image, class: "ChatMain__inputBox--file"
 
-      %input.ChatMain__submit{type: "submit", value: "Send"}
+      = f.submit 'Send', class: "ChatMain__submit"

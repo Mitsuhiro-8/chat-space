@@ -13,8 +13,8 @@
   .SideBar__groupList
     - current_user.groups.each do |group|
       .SideBar__groupMenu
-        = link_to '#' do
+        = link_to group_messages_path(group) do
           .SideBar__groupName
             = group.name
           .SideBar__groupMessage
-            メッセージはまだありません
+            = group.show_last_message

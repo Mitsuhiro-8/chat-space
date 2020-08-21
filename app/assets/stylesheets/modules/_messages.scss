@@ -7,7 +7,7 @@
   display: flex;
 }
 
-
+// サイドバー
 .SideBar {
   width: 300px;
   color: $white;
@@ -45,7 +45,7 @@
       margin-left: 5px;
     }
   }
-  
+  // グループリスト
   &__groupList {
     height: calc(100% - 100px);
     padding: $Side_padding;
@@ -71,11 +71,11 @@
   }
 }
 
-
-  
+// チャットメイン 
 .ChatMain {
   width: calc(100vw - 300px);
 
+    // ヘッダー
     &__header {
       height:100px;
       padding: 0 40px;
@@ -115,11 +115,13 @@
       display: block;
     } 
 
+    // メッセージ
   &__messageList {
     height: calc(100% - 100px - 90px);
     padding-top: 35px;
     padding-left: 40px;
     background-color: #fafafa;
+    overflow: scroll;
   }
 
   &__info {
@@ -145,7 +147,7 @@
   color: #434A54;
   font-size: 14px;
   }
-
+  // フッター
   &__footer {
     height: 90px;
     background-color: #d2d2d2;

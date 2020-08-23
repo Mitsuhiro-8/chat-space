@@ -1,8 +1,9 @@
 $(function(){
   function buildHTML(message){
-    if(message.image){
+    if (message.image){
       let html =
-        `<div class="ChatMain__info">
+     `<div class="ChatMain__messageBox" data-message-id=${message.id}>
+        <div class="ChatMain__info">
           <div class="ChatMain__userName">
             ${message.user_name}
           </div>
@@ -15,11 +16,13 @@ $(function(){
             ${message.content}
           </p>
           <img class="Message__image" src="${message.image}">
-        </div>`
+        </div>
+      </div>`
       return html;
     } else {
       let html = 
-       `<div class="ChatMain__info">
+     `<div class="ChatMain__messageBox" data-message-id=${message.id}>
+        <div class="ChatMain__info">
           <div class="ChatMain__userName">
             ${message.user_name}
           </div>
@@ -31,7 +34,8 @@ $(function(){
           <p class="Message__content">
             ${message.content}
           </p>
-        </div>`
+        </div>
+      </div>`
       return html;
     };
   }
@@ -48,14 +52,15 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      let html = buildHTML(data)
+      let html = buildHTML(data);
       $('.ChatMain__messageList').append(html);
-      $('.ChatMain__messageList').animate({ scrollTop: $('.ChatMain__messageList')[0].scrollHeight});
       $('.ChatMain__form')[0].reset();
+      $('.ChatMain__messageList').animate({ scrollTop: $('.ChatMain__messageList')[0].scrollHeight});
       $('.ChatMain__submit').prop('disabled', false);
     })
     .fail(function(){
       alert('メッセージ送信に失敗しました');
+      $('.ChatMain__submit').prop('disabled', false);
     });
   });
 });
